@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="bmi_calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="bmi_calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="backToMainButtonTapped:" destination="QIh-B4-Boh" eventType="touchUpInside" id="C3m-TE-eAM"/>
+                                    <action selector="backToMainButtonTapped:" destination="QIh-B4-Boh" eventType="touchUpInside" id="aVx-hw-sYZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ey-qp-t40">
@@ -376,7 +376,7 @@
                         <outlet property="adviceMain" destination="uaS-aW-f7c" id="U08-aN-TmM"/>
                         <outlet property="adviceTitle" destination="mnV-WD-fX0" id="cMI-k8-TfT"/>
                         <outlet property="backButton" destination="ydO-p9-CPd" id="l6R-xa-eMl"/>
-                        <outlet property="backToMainButton" destination="fd5-TK-XFJ" id="vfr-u8-JJU"/>
+                        <outlet property="backToMainButton" destination="fd5-TK-XFJ" id="NAG-bN-HiW"/>
                         <outlet property="heightLabelSecond" destination="QI9-Yw-z9X" id="5j3-EY-Fs6"/>
                         <outlet property="recipeButton" destination="8ey-qp-t40" id="5fo-vs-hQW"/>
                         <outlet property="smileImage" destination="a1u-va-Nou" id="6BV-tv-2YJ"/>

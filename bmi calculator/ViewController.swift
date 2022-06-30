@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var weightSliderPosition = 50
     var heightSliderPosition = 150
     
-    var result: Double = 0
+    var result: Float = 0
     
     
     override func viewDidLoad() {
@@ -27,14 +27,17 @@ class ViewController: UIViewController {
         setup ()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        restart()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        restart()
+    }
+    
     
     func restart (){
-        weightLabel.text = "00"
-        heightLabel.text = "00"
+        weightLabel.text = "50 кг"
+        heightLabel.text = "150 см"
+        weightSlider.value = 50
+        heightSlider.value = 150
     }
     
     func setup (){
@@ -66,11 +69,11 @@ class ViewController: UIViewController {
     @IBAction func getResultButtonTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
         navigationController?.pushViewController(vc, animated: true)
-        vc.resultSecond = self.result
+        result = Float(weightSliderPosition)/Float((heightSliderPosition*heightSliderPosition)/10000)
+        vc.resultSecond = result
         vc.secondWeight = "\(weightSliderPosition) кг"
         vc.secondHeight = "\(heightSliderPosition) см"
-        result = Double(weightSliderPosition)/Double(heightSliderPosition*heightSliderPosition)
-        print(result)
+        
     }
     
 

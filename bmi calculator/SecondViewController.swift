@@ -19,10 +19,10 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var recipeButton: UIButton!
     
     
-    var resultSecond: Double = 0
+    var resultSecond: Float = 0
     var secondHeight = ""
     var secondWeight = ""
-    
+    var calculations: Calculations = .one
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,15 @@ class SecondViewController: UIViewController {
         getResult()
         getData()
         recipe()
-        recipeButton.isHidden = true
-        
-//        self.navigationItem.setHidesBackButton(true, animated: true)
+    
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+    }
+    
     
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -51,26 +56,35 @@ class SecondViewController: UIViewController {
     }
 
     func getResult(){
-        if resultSecond < 18.5 {
+        if resultSecond <= 18.5 {
             adviceTitle.text = "У вас недовес"
             adviceMain.text = "Обратитесь к врачу"
             recipeButton.isHidden = false
-        } else if resultSecond > 18.5 && resultSecond < 25 {
+            smileImage.image = UIImage(named: "omg") ?? UIImage()
+        } else if resultSecond > 18.5 && resultSecond <= 25 {
             adviceTitle.text = "У вас вес в норме"
             adviceMain.text = "Вы молодец!"
-        } else if resultSecond > 25 && resultSecond < 30 {
-            adviceTitle.text = "У вас вес выше нормы"
+            recipeButton.isHidden = true
+            smileImage.image = UIImage(named: "cool") ?? UIImage()
+        } else if resultSecond > 25 && resultSecond <= 30 {
+            adviceTitle.text = "Ваш вес выше нормы"
             adviceMain.text = "Нужно занятьс спортом"
+            recipeButton.isHidden = true
+            smileImage.image = UIImage(named: "think") ?? UIImage()
         }else if resultSecond > 30{
             adviceTitle.text = "У вас ожирение"
             adviceMain.text = "Нужно срочно сесть на диету"
+            recipeButton.isHidden = true
+            smileImage.image = UIImage(named: "omg") ?? UIImage()
         }
     }
     
     
-    
     @IBAction func backToMainButtonTapped(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     
 
