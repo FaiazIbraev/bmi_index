@@ -36,7 +36,7 @@ class SecondViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
     }
     
     
